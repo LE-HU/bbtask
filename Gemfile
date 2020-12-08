@@ -21,4 +21,4 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Added
 gem 'rspec', '~> 3.10'
 gem 'rswag', '~> 2.3', '>= 2.3.1'
-gem 'factory_bot', '~> 6.1'
+gem 'factory_bot_rails', '~> 6.1'

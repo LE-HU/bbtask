@@ -13,22 +13,7 @@ paths:
           content: {}
     post:
       summary: create user
-      parameters:
-      - name: first_name
-        in: user
-        required: true
-        schema:
-          type: string
-      - name: last_name
-        in: user
-        required: true
-        schema:
-          type: string
-      - name: email
-        in: user
-        required: true
-        schema:
-          type: string
+      parameters: []
       responses:
         '201':
           description: successful
@@ -64,21 +49,53 @@ paths:
           content: {}
     patch:
       summary: update user
+      parameters: []
       responses:
         '200':
           description: successful
           content: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    first_name:
+                      type: string
+                    last_name:
+                      type: string
+                    email:
+                      type: string
     put:
       summary: update user
+      parameters: []
       responses:
         '200':
           description: successful
           content: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    first_name:
+                      type: string
+                    last_name:
+                      type: string
+                    email:
+                      type: string
     delete:
       summary: delete user
       responses:
-        '200':
-          description: successful
+        '204':
+          description: no_content
           content: {}
 servers:
 - url: https://{defaultHost}

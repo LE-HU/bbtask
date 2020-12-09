@@ -1,0 +1,87 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/users":
+    get:
+      summary: list users
+      responses:
+        '200':
+          description: successful
+          content: {}
+    post:
+      summary: create user
+      parameters:
+      - name: first_name
+        in: user
+        required: true
+        schema:
+          type: string
+      - name: last_name
+        in: user
+        required: true
+        schema:
+          type: string
+      - name: email
+        in: user
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: successful
+          content: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    first_name:
+                      type: string
+                    last_name:
+                      type: string
+                    email:
+                      type: string
+  "/users/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show user
+      responses:
+        '200':
+          description: successful
+          content: {}
+    patch:
+      summary: update user
+      responses:
+        '200':
+          description: successful
+          content: {}
+    put:
+      summary: update user
+      responses:
+        '200':
+          description: successful
+          content: {}
+    delete:
+      summary: delete user
+      responses:
+        '200':
+          description: successful
+          content: {}
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com

@@ -22,3 +22,4 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
 gem 'rswag', '~> 2.3', '>= 2.3.1'
 gem 'factory_bot_rails', '~> 6.1'
+gem 'rack-cors', '~> 1.1', '>= 1.1.1'

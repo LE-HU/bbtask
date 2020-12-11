@@ -21,6 +21,33 @@ RSpec.configure do |config|
         title: 'API V1',
         version: 'v1'
       },
+      components: {
+        schemas: {
+          errors_object: {
+            type: 'object',
+            properties: {
+              errors: { '$ref' => '#/components/schemas/errors_map' }
+            }
+          },
+          errors_map: {
+            type: 'object',
+            additionalProperties: {
+              type: 'array',
+              items: { type: 'string' }
+            }
+          },
+          # blog: {
+          #   type: 'object',
+          #   properties: {
+          #     id: { type: 'integer' },
+          #     title: { type: 'string' },
+          #     content: { type: 'string', nullable: true },
+          #     thumbnail: { type: 'string', nullable: true }
+          #   },
+          #   required: %w[id title]
+          # },
+        }
+      },
       paths: {},
       servers: [
         {
@@ -40,4 +67,6 @@ RSpec.configure do |config|
   # the key, this may want to be changed to avoid putting yaml in json files.
   # Defaults to json. Accepts ':json' and ':yaml'.
   config.swagger_format = :yaml
+
 end
+

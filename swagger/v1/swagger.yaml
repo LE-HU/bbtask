@@ -3,6 +3,19 @@ openapi: 3.0.1
 info:
   title: API V1
   version: v1
+components:
+  schemas:
+    errors_object:
+      type: object
+      properties:
+        errors:
+          "$ref": "#/components/schemas/errors_map"
+    errors_map:
+      type: object
+      additionalProperties:
+        type: array
+        items:
+          type: string
 paths:
   "/users":
     get:
@@ -20,7 +33,7 @@ paths:
       parameters: []
       responses:
         '201':
-          description: successful
+          description: invalid_request
           content: {}
       requestBody:
         content:
@@ -37,6 +50,8 @@ paths:
                       type: string
                     email:
                       type: string
+              required:
+              - first_namelast_nameemail
   "/users/{id}":
     parameters:
     - name: id
@@ -54,7 +69,7 @@ paths:
           description: successful
           content: {}
         '404':
-          description: user not found
+          description: not_found
           content: {}
     patch:
       summary: update user
@@ -64,6 +79,9 @@ paths:
       responses:
         '200':
           description: successful
+          content: {}
+        '404':
+          description: not_found
           content: {}
       requestBody:
         content:
@@ -89,6 +107,9 @@ paths:
         '200':
           description: successful
           content: {}
+        '404':
+          description: not_found
+          content: {}
       requestBody:
         content:
           application/json:
@@ -111,6 +132,9 @@ paths:
       responses:
         '204':
           description: no_content
+          content: {}
+        '404':
+          description: not_found
           content: {}
 servers:
 - url: http://{defaultHost}
